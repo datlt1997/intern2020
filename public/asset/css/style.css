@@ -1,0 +1,10 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.fix-select {
+	width: 150px;
+    height: 30px;
+    transform: translateY(10px);
+}

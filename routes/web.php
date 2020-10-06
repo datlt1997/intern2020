@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'localization'], function () {
+	Route::get('/', function () {
+		return view('admin.master');
+	});
+	Route::get('change-language/{language}', [LanguageController::class, 'changeLanguage'])->name('change-language');
 });
+
